@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <title>Pick a plant</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://unpkg.com/papaparse@5.0.0/papaparse.min.js"></script>
+</head>
+<body>
+    <script>
+            Papa.parse("plants.csv", {
+                download: true,
+                header: true,
+                complete: function(results, file) {
+                    let plants=results.data;
+                    console.log("Plant arrays are ready!", plants);
+                    plants.forEach (function(plantData){
+                        var displayComName= document.createElement('div');
+                        displayComName.innerHTML=plantData["Common Name"];
+                        document.body.appendChild(displayComName);
+                    })
+                }
+            })
+    </script>
+    <footer>
+        <p>Copyright Carly Scofield</p>
+    </footer>
+</body>
