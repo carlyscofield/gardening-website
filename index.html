@@ -15,11 +15,13 @@
                     plants.forEach (function(plantData){
                         var displayComName= document.createElement('div');
                         displayComName.innerHTML=plantData["Common Name"];
-                        document.body.appendChild(displayComName);
+                        document.getElementById("plant-list").appendChild(displayComName);
                     })
                 }
             })
     </script>
+    <div id="plant-list">
+    </div>
     <footer>
         <p>Copyright Carly Scofield</p>
     </footer>
